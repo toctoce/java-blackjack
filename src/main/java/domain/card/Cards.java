@@ -18,7 +18,7 @@ public record Cards(List<Card> cards) {
         this.cards = List.copyOf(cards);
     }
 
-    public Cards addCard(Card card) {
+    public Cards add(Card card) {
         List<Card> cards = new ArrayList<>(this.cards);
         cards.add(card);
         return new Cards(cards);

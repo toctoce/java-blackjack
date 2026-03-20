@@ -1,7 +1,7 @@
 package domain.result;
 
-import domain.participant.Dealer;
 import domain.betting.Bettings;
+import domain.participant.Dealer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +22,7 @@ public record Results(List<Result> results) {
         return new Results(results);
     }
 
-    public Results addResult(Result result) {
+    public Results add(Result result) {
         List<Result> results = new ArrayList<>(this.results);
         results.add(result);
         return new Results(results);

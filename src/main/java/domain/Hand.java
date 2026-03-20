@@ -34,7 +34,7 @@ public class Hand {
     }
 
     public Hand addCard(Card card) {
-        return new Hand(cards.addCard(card));
+        return new Hand(cards.add(card));
     }
 
     public Cards getCards() {

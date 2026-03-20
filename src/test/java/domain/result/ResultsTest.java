@@ -33,7 +33,7 @@ class ResultsTest {
         Results results = new Results();
 
         // when
-        Results newResults = results.addResult(createAmount10000Result("봉구스", WIN));
+        Results newResults = results.add(createAmount10000Result("봉구스", WIN));
 
         // then
         Assertions.assertEquals(1, newResults.results().size());

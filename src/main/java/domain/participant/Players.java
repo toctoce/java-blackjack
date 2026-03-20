@@ -13,7 +13,7 @@ public record Players(List<Player> players) {
         this.players = List.copyOf(players);
     }
 
-    public Players addPlayer(Player player) {
+    public Players add(Player player) {
         List<Player> players = new ArrayList<>(this.players);
         Players.this.players.add(player);
         return new Players(players);
