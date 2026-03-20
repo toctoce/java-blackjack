@@ -37,7 +37,7 @@ public class Participant {
 
     // todo : Participant도 불변으로 변경
     public void draw(Card card) {
-        hand = hand.addCard(card);
+        hand = hand.draw(card);
     }
 
 }

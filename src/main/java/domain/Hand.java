@@ -33,7 +33,7 @@ public class Hand {
         return getSum() == BLACKJACK_SCORE;
     }
 
-    public Hand addCard(Card card) {
+    public Hand draw(Card card) {
         return new Hand(cards.add(card));
     }
 
