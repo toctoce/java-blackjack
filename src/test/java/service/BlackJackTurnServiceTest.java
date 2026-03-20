@@ -25,55 +25,39 @@ class BlackJackTurnServiceTest {
     }
 
     @Test
-    void 플레이어가_정상적으로_Hit_하는_경우() {
+    void 플레이어_Hit_시도가_성공하는_경우() {
         // given
         Player player = createPlayer("봉구스");
 
         // when
-        blackJackTurnService.hitByPlayer(player, "y", deck);
+        boolean hit = blackJackTurnService.tryHitByPlayer(player, "y", deck);
 
         // then
+        assertTrue(hit);
         assertEquals(1, player.getHand().getCards().size());
     }
 
     @Test
-    void 딜러가_정상적으로_Hit_하는_경우() {
+    void 딜러_Hit_시도가_성공하는_경우() {
         // given
         Dealer dealer = createDealer();
 
         // when
-        blackJackTurnService.hitByDealer(dealer, deck);
+        boolean hit = blackJackTurnService.tryHitByDealer(dealer, deck);
 
         // then
+        assertTrue(hit);
         assertEquals(1, dealer.getHand().getCards().size());
     }
 
     @Test
-    void 딜러가_드로우_할_수_있는_경우() {
-        // given
-        Dealer dealer = createDealer(Rank.TWO, Rank.FIVE);
-
-        // when, then
-        assertTrue(blackJackTurnService.hitByDealer(dealer, deck));
-    }
-
-    @Test
-    void 딜러가_드로우_할_수_없는_경우() {
+    void 딜러_Hit_시도가_실패하는_경우() {
         // given
         Dealer dealer = createDealer(Rank.JACK, Rank.QUEEN, Rank.KING);
 
         // when, then
-        assertFalse(blackJackTurnService.hitByDealer(dealer, deck));
-    }
-
-    @Test
-    void 플레이어가_드로우_할_수_있는_경우() {
-        // given
-        Player player = createPlayer("시오", Rank.TWO, Rank.FIVE);
-
-        // when, then
-
-        assertTrue(blackJackTurnService.hitByPlayer(player, "y", deck));
+        assertFalse(blackJackTurnService.tryHitByDealer(dealer, deck));
+        assertEquals(3, dealer.getHand().getCards().size());
     }
 
     @Nested
@@ -84,7 +68,8 @@ class BlackJackTurnServiceTest {
             Player player = createPlayer("시오", Rank.JACK, Rank.QUEEN, Rank.KING);
 
             // when, then
-            assertFalse(blackJackTurnService.hitByPlayer(player, "y", deck));
+            assertFalse(blackJackTurnService.tryHitByPlayer(player, "y", deck));
+            assertEquals(3, player.getHand().getCards().size());
         }
 
         @Test
@@ -93,7 +78,8 @@ class BlackJackTurnServiceTest {
             Player player = createPlayer("시오", Rank.TWO, Rank.FIVE);
 
             // when, then
-            assertFalse(blackJackTurnService.hitByPlayer(player, "n", deck));
+            assertFalse(blackJackTurnService.tryHitByPlayer(player, "n", deck));
+            assertEquals(2, player.getHand().getCards().size());
         }
     }
 

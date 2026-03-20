@@ -7,7 +7,7 @@ import domain.participant.Player;
 
 // todo : 메서드 통합 및 메서드명 수정
 public class BlackJackTurnService {
-    public boolean hitByPlayer(Player player, String input, Deck deck) {
+    public boolean tryHitByPlayer(Player player, String input, Deck deck) {
         if (canPlayerHit(player, input)) {
             Card card = deck.drawCard();
             player.draw(card);
@@ -16,7 +16,7 @@ public class BlackJackTurnService {
         return false;
     }
 
-    public boolean hitByDealer(Dealer dealer, Deck deck) {
+    public boolean tryHitByDealer(Dealer dealer, Deck deck) {
         if (canDealerHit(dealer)) {
             Card card = deck.drawCard();
             dealer.draw(card);
