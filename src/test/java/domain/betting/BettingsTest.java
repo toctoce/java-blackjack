@@ -1,9 +1,10 @@
 package domain.betting;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static util.TestUtil.createBetting;
 
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class BettingsTest {
@@ -14,7 +15,7 @@ class BettingsTest {
         Bettings bettings = new Bettings();
 
         // when, then
-        Assertions.assertTrue(bettings.bettings().isEmpty());
+        assertTrue(bettings.bettings().isEmpty());
     }
 
     @Test
@@ -23,7 +24,7 @@ class BettingsTest {
         Bettings bettings = new Bettings(List.of(createBetting("봉구스", 10000), createBetting("시오", 20000)));
 
         // when, then
-        Assertions.assertEquals(2, bettings.bettings().size());
+        assertEquals(2, bettings.bettings().size());
     }
 
     @Test
@@ -35,6 +36,6 @@ class BettingsTest {
         Bettings newBettings = bettings.addBetting(createBetting("봉구스", 10000));
 
         // then
-        Assertions.assertEquals(1, newBettings.bettings().size());
+        assertEquals(1, newBettings.bettings().size());
     }
 }
