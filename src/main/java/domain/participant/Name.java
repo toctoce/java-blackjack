@@ -1,4 +1,4 @@
-package domain.card;
+package domain.participant;
 
 import static exception.ErrorMessage.INVALID_NAME;
 

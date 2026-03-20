@@ -2,7 +2,6 @@ package domain.participant;
 
 import domain.Hand;
 import domain.card.Card;
-import domain.card.Name;
 import java.util.List;
 
 public class Player extends Participant {

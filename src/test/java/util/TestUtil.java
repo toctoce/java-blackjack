@@ -2,11 +2,11 @@ package util;
 
 import domain.betting.Betting;
 import domain.card.Card;
-import domain.card.Name;
 import domain.card.Rank;
 import domain.card.Suit;
 import domain.money.BettingMoney;
 import domain.participant.Dealer;
+import domain.participant.Name;
 import domain.participant.Player;
 import domain.result.Result;
 import domain.result.Results;
