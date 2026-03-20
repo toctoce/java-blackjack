@@ -7,7 +7,7 @@ import java.util.List;
 
 public record Cards(List<Card> cards) {
 
-    public record PopResult(Cards remaining, Card removedCard) {
+    public record RemoveFirstResult(Cards remaining, Card removedCard) {
     }
 
     public Cards() {
@@ -24,11 +24,11 @@ public record Cards(List<Card> cards) {
         return new Cards(cards);
     }
 
-    public PopResult pop() {
+    public RemoveFirstResult removeFirst() {
         List<Card> cards = new ArrayList<>(this.cards);
         Card removedCard = cards.removeFirst();
         Cards remaining = new Cards(cards);
-        return new PopResult(remaining, removedCard);
+        return new RemoveFirstResult(remaining, removedCard);
     }
 
     public int getSum() {

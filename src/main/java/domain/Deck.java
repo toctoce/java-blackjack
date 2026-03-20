@@ -4,7 +4,7 @@ import static exception.ErrorMessage.EMPTY_DECK;
 
 import domain.card.Card;
 import domain.card.Cards;
-import domain.card.Cards.PopResult;
+import domain.card.Cards.RemoveFirstResult;
 import domain.card.Rank;
 import domain.card.Suit;
 import java.util.ArrayList;
@@ -36,9 +36,9 @@ public class Deck {
 
     public Card drawCard() {
         validateEmptyDeck();
-        PopResult popResult = cards.pop();
-        cards = popResult.remaining();
-        return popResult.removedCard();
+        RemoveFirstResult removeFirstResult = cards.removeFirst();
+        cards = removeFirstResult.remaining();
+        return removeFirstResult.removedCard();
     }
 
     public List<Card> getCards() {
