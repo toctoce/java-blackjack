@@ -14,7 +14,7 @@ class BettingsTest {
         Bettings bettings = new Bettings();
 
         // when, then
-        Assertions.assertNotNull(bettings);
+        Assertions.assertTrue(bettings.bettings().isEmpty());
     }
 
     @Test
