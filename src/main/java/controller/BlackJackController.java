@@ -36,7 +36,7 @@ public class BlackJackController {
         this.outputView = outputView;
     }
 
-    public void start() {
+    public void startGame() {
         List<String> names = inputView.askPlayerNames();
 
         Deck deck = blackJackInitService.createDeck();

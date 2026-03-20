@@ -92,7 +92,7 @@ public class BlackJackControllerTest {
         @Test
         void 닉네임_요청_메시지를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -103,7 +103,7 @@ public class BlackJackControllerTest {
         @Test
         void 닉네임으로_초기_카드_분배_메시지를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -114,7 +114,7 @@ public class BlackJackControllerTest {
         @Test
         void 플레이어마다_배팅_금액_요청_메시지를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -126,7 +126,7 @@ public class BlackJackControllerTest {
         @Test
         void 카드_출력_형식을_지켜야_한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -140,7 +140,7 @@ public class BlackJackControllerTest {
         @Test
         void HIT_유무_요청_메시지를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -152,7 +152,7 @@ public class BlackJackControllerTest {
         @Test
         void 딜러_HIT_메시지를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -163,7 +163,7 @@ public class BlackJackControllerTest {
         @Test
         void 최종_결과를_출력한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
@@ -177,7 +177,7 @@ public class BlackJackControllerTest {
         @Test
         void 로직이_정상적으로_동작한다() {
             // when
-            blackJackController.start();
+            blackJackController.startGame();
 
             // then
             String output = getOutput();
