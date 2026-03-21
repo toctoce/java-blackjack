@@ -1,10 +1,9 @@
-package controller;
+package domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.spy;
 
-import domain.Deck;
 import domain.card.Card;
 import domain.card.Rank;
 import domain.card.Suit;

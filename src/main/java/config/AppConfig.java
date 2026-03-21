@@ -1,6 +1,6 @@
 package config;
 
-import controller.BlackJackRunner;
+import domain.BlackJackRunner;
 import service.BlackJackInitService;
 import service.BlackJackTurnService;
 import view.InputView;
@@ -23,7 +23,7 @@ public class AppConfig {
         return new OutputView();
     }
 
-    public BlackJackRunner blackJackController() {
+    public BlackJackRunner blackJackRunner() {
         return new BlackJackRunner(
                 blackJackInitService(),
                 blackJackTurnService(),

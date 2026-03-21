@@ -1,6 +1,5 @@
-package controller;
+package domain;
 
-import domain.Deck;
 import domain.betting.Betting;
 import domain.betting.Bettings;
 import domain.money.BettingMoney;
