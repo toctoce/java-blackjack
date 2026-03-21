@@ -2,6 +2,7 @@ package service;
 
 import static domain.Hand.BLACKJACK_SCORE;
 
+import domain.Command;
 import domain.Deck;
 import domain.card.Card;
 import domain.participant.Dealer;
@@ -9,10 +10,9 @@ import domain.participant.Player;
 
 public class BlackJackTurnService {
     private static final int DEALER_HIT_LIMIT = 17;
-    private static final String HIT_COMMAND = "y";
 
-    public boolean tryHitByPlayer(Player player, String input, Deck deck) {
-        if (canPlayerHit(player, input)) {
+    public boolean tryHitByPlayer(Player player, Command command, Deck deck) {
+        if (canPlayerHit(player, command)) {
             Card card = deck.drawCard();
             player.draw(card);
             return true;
@@ -33,8 +33,8 @@ public class BlackJackTurnService {
         return player.getScore() < BLACKJACK_SCORE;
     }
 
-    private boolean canPlayerHit(Player player, String input) {
-        return isPlayerUnder21(player) && input.equals(HIT_COMMAND);
+    private boolean canPlayerHit(Player player, Command command) {
+        return isPlayerUnder21(player) && command.isHit();
     }
 
     private boolean canDealerHit(Dealer dealer) {

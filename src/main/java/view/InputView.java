@@ -1,14 +1,12 @@
 package view;
 
+import domain.Command;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class InputView {
-    private static final String HIT_COMMAND = "y";
-    private static final String STAND_COMMAND = "n";
     private static final String EMPTY_NAME_MESSAGE = "닉네임에 빈 문자열을 입력할 수 없습니다.";
-    private static final String INVALID_YN_MESSAGE = "y 혹은 n만 입력 가능합니다.";
 
     private final String START_MESSAGE = "게임에 참여할 사람의 이름을 입력하세요.(쉼표 기준으로 분리)";
     private final String YN_FORMAT = "%s는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)\n";
@@ -43,12 +41,8 @@ public class InputView {
     }
 
     // todo : COMMAND 원시값 포장
-    public String askPlayerCommand(String name) {
+    public Command askPlayerCommand(String name) {
         System.out.printf(YN_FORMAT, name);
-        String input = sc.nextLine();
-        if (input.equals(HIT_COMMAND) || input.equals(STAND_COMMAND)) {
-            return input;
-        }
-        throw new IllegalArgumentException(INVALID_YN_MESSAGE);
+        return Command.from(sc.nextLine());
     }
 }

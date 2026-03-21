@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static util.TestUtil.createDealer;
 import static util.TestUtil.createPlayer;
 
+import domain.Command;
 import domain.Deck;
 import domain.card.Rank;
 import domain.participant.Dealer;
@@ -30,7 +31,7 @@ class BlackJackTurnServiceTest {
         Player player = createPlayer("봉구스");
 
         // when
-        boolean hit = blackJackTurnService.tryHitByPlayer(player, "y", deck);
+        boolean hit = blackJackTurnService.tryHitByPlayer(player, Command.HIT, deck);
 
         // then
         assertTrue(hit);
@@ -68,7 +69,7 @@ class BlackJackTurnServiceTest {
             Player player = createPlayer("시오", Rank.JACK, Rank.QUEEN, Rank.KING);
 
             // when, then
-            assertFalse(blackJackTurnService.tryHitByPlayer(player, "y", deck));
+            assertFalse(blackJackTurnService.tryHitByPlayer(player, Command.HIT, deck));
             assertEquals(3, player.getHand().getCards().size());
         }
 
@@ -78,7 +79,7 @@ class BlackJackTurnServiceTest {
             Player player = createPlayer("시오", Rank.TWO, Rank.FIVE);
 
             // when, then
-            assertFalse(blackJackTurnService.tryHitByPlayer(player, "n", deck));
+            assertFalse(blackJackTurnService.tryHitByPlayer(player, Command.STAND, deck));
             assertEquals(2, player.getHand().getCards().size());
         }
     }

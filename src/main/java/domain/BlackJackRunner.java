@@ -96,9 +96,9 @@ public class BlackJackRunner {
     }
 
     private boolean isFirstCommandNo(Player player, Deck deck) {
-        String yesNoInput = inputView.askPlayerCommand(player.getNameString());
+        Command command = inputView.askPlayerCommand(player.getNameString());
 
-        if (blackJackTurnService.tryHitByPlayer(player, yesNoInput, deck)) {
+        if (blackJackTurnService.tryHitByPlayer(player, command, deck)) {
             HandDto handDto = HandDto.from(player.getHand());
             outputView.printHandOutput(player.getNameString(), handDto);
             return true;
