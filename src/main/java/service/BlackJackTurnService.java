@@ -1,11 +1,14 @@
 package service;
 
+import static common.Constants.BLACKJACK_SCORE;
+import static common.Constants.DEALER_HIT_LIMIT;
+import static common.Constants.HIT_COMMAND;
+
 import domain.Deck;
 import domain.card.Card;
 import domain.participant.Dealer;
 import domain.participant.Player;
 
-// todo : 메서드 통합 및 메서드명 수정
 public class BlackJackTurnService {
     public boolean tryHitByPlayer(Player player, String input, Deck deck) {
         if (canPlayerHit(player, input)) {
@@ -26,15 +29,14 @@ public class BlackJackTurnService {
     }
 
     public boolean isPlayerUnder21(Player player) {
-        return player.getScore() < 21;
+        return player.getScore() < BLACKJACK_SCORE;
     }
 
     private boolean canPlayerHit(Player player, String input) {
-        return isPlayerUnder21(player) && input.equals("y");
+        return isPlayerUnder21(player) && input.equals(HIT_COMMAND);
     }
 
     private boolean canDealerHit(Dealer dealer) {
-        return dealer.getScore() < 17;
+        return dealer.getScore() < DEALER_HIT_LIMIT;
     }
-
 }

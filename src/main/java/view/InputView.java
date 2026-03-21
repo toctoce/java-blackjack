@@ -1,5 +1,8 @@
 package view;
 
+import static common.Constants.HIT_COMMAND;
+import static common.Constants.STAND_COMMAND;
+
 import exception.ErrorMessage;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +46,7 @@ public class InputView {
     public String askPlayerCommand(String name) {
         System.out.printf(YN_FORMAT, name);
         String input = sc.nextLine();
-        if (input.equals("y") || input.equals("n")) {
+        if (input.equals(HIT_COMMAND) || input.equals(STAND_COMMAND)) {
             return input;
         }
         throw new IllegalArgumentException(ErrorMessage.INVALID_YN.getMessage());

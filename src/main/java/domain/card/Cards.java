@@ -1,6 +1,6 @@
 package domain.card;
 
-import static domain.Hand.BLACKJACK_SCORE;
+import static common.Constants.BLACKJACK_SCORE;
 
 import java.util.ArrayList;
 import java.util.List;
