@@ -18,7 +18,7 @@ import service.BlackJackTurnService;
 import view.InputView;
 import view.OutputView;
 
-public class BlackJackController {
+public class BlackJackRunner {
 
     private final BlackJackInitService blackJackInitService;
     private final BlackJackTurnService blackJackTurnService;
@@ -26,17 +26,17 @@ public class BlackJackController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public BlackJackController(BlackJackInitService blackJackInitService,
-                               BlackJackTurnService blackJackTurnService,
-                               InputView inputView,
-                               OutputView outputView) {
+    public BlackJackRunner(BlackJackInitService blackJackInitService,
+                           BlackJackTurnService blackJackTurnService,
+                           InputView inputView,
+                           OutputView outputView) {
         this.blackJackInitService = blackJackInitService;
         this.blackJackTurnService = blackJackTurnService;
         this.inputView = inputView;
         this.outputView = outputView;
     }
 
-    public void startGame() {
+    public void run() {
         List<String> names = inputView.askPlayerNames();
 
         Deck deck = blackJackInitService.createDeck();

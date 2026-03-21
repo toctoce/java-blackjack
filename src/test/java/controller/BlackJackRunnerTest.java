@@ -21,7 +21,7 @@ import view.InputView;
 import view.OutputView;
 
 
-public class BlackJackControllerTest {
+public class BlackJackRunnerTest {
 
     private ByteArrayOutputStream outputStreamCaptor;
 
@@ -42,7 +42,7 @@ public class BlackJackControllerTest {
     @Nested
     class 정상적으로_동작하는_경우 {
 
-        BlackJackController blackJackController;
+        BlackJackRunner blackJackRunner;
 
         @BeforeEach
         void setUp() {
@@ -80,7 +80,7 @@ public class BlackJackControllerTest {
             InputView inputView = new InputView();
             OutputView outputView = new OutputView();
 
-            blackJackController = new BlackJackController(
+            blackJackRunner = new BlackJackRunner(
                     blackJackInitService,
                     blackJackTurnService,
                     inputView,
@@ -90,7 +90,7 @@ public class BlackJackControllerTest {
         @Test
         void 닉네임_요청_메시지를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -101,7 +101,7 @@ public class BlackJackControllerTest {
         @Test
         void 닉네임으로_초기_카드_분배_메시지를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -112,7 +112,7 @@ public class BlackJackControllerTest {
         @Test
         void 플레이어마다_배팅_금액_요청_메시지를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -124,7 +124,7 @@ public class BlackJackControllerTest {
         @Test
         void 카드_출력_형식을_지켜야_한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -138,7 +138,7 @@ public class BlackJackControllerTest {
         @Test
         void HIT_유무_요청_메시지를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -150,7 +150,7 @@ public class BlackJackControllerTest {
         @Test
         void 딜러_HIT_메시지를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -161,7 +161,7 @@ public class BlackJackControllerTest {
         @Test
         void 최종_결과를_출력한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();
@@ -175,7 +175,7 @@ public class BlackJackControllerTest {
         @Test
         void 로직이_정상적으로_동작한다() {
             // when
-            blackJackController.startGame();
+            blackJackRunner.run();
 
             // then
             String output = getOutput();

@@ -1,12 +1,12 @@
 import config.AppConfig;
-import controller.BlackJackController;
+import controller.BlackJackRunner;
 
 public class Application {
 
     public static void main(String[] args) {
         AppConfig appConfig = new AppConfig();
-        BlackJackController blackJackController = appConfig.blackJackController();
+        BlackJackRunner blackJackRunner = appConfig.blackJackController();
 
-        blackJackController.startGame();
+        blackJackRunner.run();
     }
 }
