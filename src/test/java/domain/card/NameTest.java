@@ -20,7 +20,7 @@ class NameTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"일", "일이삼사오육칠팔구", "a", "abcdefghi"})
+    @ValueSource(strings = {"일", "일이삼사오육칠팔구", "a", "abcdefghi", "봉구!", "po bi"})
     void 조건에_맞지_않는_입력인_경우에는_에러를_던진다(String value) {
         // given, when
         assertThrows(IllegalArgumentException.class, () -> new Name(value));
