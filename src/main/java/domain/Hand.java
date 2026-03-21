@@ -1,12 +1,12 @@
 package domain;
 
-import static common.Constants.BLACKJACK_SCORE;
-
 import domain.card.Card;
 import domain.card.Cards;
 import java.util.List;
 
 public class Hand {
+    public static final int BLACKJACK_SCORE = 21;
+
     private final Cards cards;
 
     public Hand() {

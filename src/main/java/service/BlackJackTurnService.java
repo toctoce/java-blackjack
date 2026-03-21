@@ -1,8 +1,6 @@
 package service;
 
-import static common.Constants.BLACKJACK_SCORE;
-import static common.Constants.DEALER_HIT_LIMIT;
-import static common.Constants.HIT_COMMAND;
+import static domain.Hand.BLACKJACK_SCORE;
 
 import domain.Deck;
 import domain.card.Card;
@@ -10,6 +8,9 @@ import domain.participant.Dealer;
 import domain.participant.Player;
 
 public class BlackJackTurnService {
+    private static final int DEALER_HIT_LIMIT = 17;
+    private static final String HIT_COMMAND = "y";
+
     public boolean tryHitByPlayer(Player player, String input, Deck deck) {
         if (canPlayerHit(player, input)) {
             Card card = deck.drawCard();

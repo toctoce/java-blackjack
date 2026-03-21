@@ -1,11 +1,10 @@
 package domain.participant;
 
-import static common.Constants.INITIAL_HAND_SIZE;
-
 import domain.Hand;
 import domain.card.Card;
 
 public class Participant {
+    private static final int INITIAL_HAND_SIZE = 2;
 
     protected Hand hand;
 

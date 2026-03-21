@@ -1,7 +1,5 @@
 package domain;
 
-import static exception.ErrorMessage.EMPTY_DECK;
-
 import domain.card.Card;
 import domain.card.Cards;
 import domain.card.Cards.RemoveFirstResult;
@@ -12,6 +10,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
+    private static final String EMPTY_DECK_MESSAGE = "덱에 카드가 없습니다.";
 
     private Cards cards;
 
@@ -51,7 +50,7 @@ public class Deck {
 
     private void validateEmptyDeck() {
         if (cards.isEmpty()) {
-            throw new IllegalStateException(EMPTY_DECK.getMessage());
+            throw new IllegalStateException(EMPTY_DECK_MESSAGE);
         }
     }
 }

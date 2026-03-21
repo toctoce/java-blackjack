@@ -1,8 +1,7 @@
 package domain.money;
 
-import static exception.ErrorMessage.INVALID_BETTING_AMOUNT;
-
 public record BettingMoney(Money money) {
+    private static final String INVALID_BETTING_AMOUNT_MESSAGE = "배팅 금액은 0보다 커야합니다.";
 
     public static BettingMoney from(long amount) {
         validate(amount);
@@ -16,7 +15,7 @@ public record BettingMoney(Money money) {
 
     private static void validate(long amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException(INVALID_BETTING_AMOUNT.getMessage());
+            throw new IllegalArgumentException(INVALID_BETTING_AMOUNT_MESSAGE);
         }
     }
 }

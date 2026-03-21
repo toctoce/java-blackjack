@@ -1,10 +1,11 @@
 package domain.participant;
 
-import static common.Constants.MAX_NAME_LENGTH;
-import static common.Constants.MIN_NAME_LENGTH;
-import static exception.ErrorMessage.INVALID_NAME;
-
 public record Name(String value) {
+    private static final int MIN_NAME_LENGTH = 2;
+    private static final int MAX_NAME_LENGTH = 8;
+    private static final String INVALID_NAME_MESSAGE =
+            "닉네임은 %d~%d글자여야 합니다.".formatted(MIN_NAME_LENGTH, MAX_NAME_LENGTH);
+
     public Name(String value) {
         String trimmed = value.trim();
         validateName(trimmed);
@@ -13,7 +14,7 @@ public record Name(String value) {
 
     private void validateName(String value) {
         if (isInvalidLength(value) || hasInvalidCharacter(value)) {
-            throw new IllegalArgumentException(INVALID_NAME.getMessage());
+            throw new IllegalArgumentException(INVALID_NAME_MESSAGE);
         }
     }
 
