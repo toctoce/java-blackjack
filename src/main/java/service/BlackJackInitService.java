@@ -1,9 +1,7 @@
 package service;
 
 import domain.Deck;
-import domain.card.Card;
 import domain.participant.Dealer;
-import domain.participant.Name;
 import domain.participant.Player;
 import domain.participant.Players;
 import java.util.List;
@@ -25,9 +23,10 @@ public class BlackJackInitService {
     public Players createPlayers(List<String> names, Deck deck) {
         List<Player> players = names.stream()
                 .map(name -> {
-                    List<Card> cards = List.of(deck.drawCard(), deck.drawCard());
-                    Name nameObject = new Name(name);
-                    return Player.of(nameObject, cards);
+                    Player player = Player.from(name);
+                    player.draw(deck.drawCard());
+                    player.draw(deck.drawCard());
+                    return player;
                 })
                 .toList();
         return new Players(players);
