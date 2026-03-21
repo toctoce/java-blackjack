@@ -1,5 +1,7 @@
 package domain.participant;
 
+import static common.Constants.INITIAL_HAND_SIZE;
+
 import domain.Hand;
 import domain.card.Card;
 
@@ -24,7 +26,7 @@ public class Participant {
     }
 
     public boolean isBlackjackAtFirst() {
-        return isBlackjack() && hand.size() == 2;
+        return isBlackjack() && hand.size() == INITIAL_HAND_SIZE;
     }
 
     public Hand getHand() {
