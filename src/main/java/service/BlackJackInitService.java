@@ -12,7 +12,6 @@ public class BlackJackInitService {
         return Deck.createShuffledDeck();
     }
 
-    // todo 딜러도 카드리스트 주입!
     public Dealer createDealer(Deck deck) {
         Dealer dealer = new Dealer();
         dealer.draw(deck.drawCard());
