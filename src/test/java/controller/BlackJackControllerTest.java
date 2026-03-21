@@ -2,9 +2,7 @@ package controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.when;
 
 import domain.Deck;
 import domain.card.Card;
@@ -13,6 +11,7 @@ import domain.card.Suit;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -47,8 +46,7 @@ public class BlackJackControllerTest {
 
         @BeforeEach
         void setUp() {
-            Deck deck = mock(Deck.class);
-            when(deck.drawCard()).thenReturn(
+            List<Card> cards = List.of(
                     // 시오
                     new Card(Suit.HEARTS, Rank.TWO),
                     new Card(Suit.HEARTS, Rank.THREE),
@@ -70,8 +68,8 @@ public class BlackJackControllerTest {
                     new Card(Suit.SPADES, Rank.FIVE),
                     new Card(Suit.SPADES, Rank.SIX),
                     new Card(Suit.SPADES, Rank.SEVEN),
-                    new Card(Suit.SPADES, Rank.EIGHT)
-            );
+                    new Card(Suit.SPADES, Rank.EIGHT));
+            Deck deck = Deck.from(cards);
 
             BlackJackInitService blackJackInitService = spy(new BlackJackInitService());
             doReturn(deck).when(blackJackInitService).createDeck();
