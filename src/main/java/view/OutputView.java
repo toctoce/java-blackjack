@@ -8,16 +8,16 @@ import dto.PlayerHandScoreDto;
 import dto.ScoreResultDto;
 
 public class OutputView {
-    // todo : OS 종속적이지 않은 줄바꿈 문자 사용
-    private final String HEADER_FORMAT = "딜러와 %s에게 2장을 나누었습니다.\n";
-    private final String DEALER_STATUS_FORMAT = "딜러카드: %s\n";
-    private final String PLAYER_STATUS_FORMAT = "%s카드: %s\n";
-    private final String DEALER_COUNT_FORMAT = "딜러: %d\n";
-    private final String PLAYER_RESULT_FORMAT = "%s: %d\n";
-    private final String DEALER_NAME = "딜러";
-    private final String SCORE_RESULT_FORMAT = "%s카드: %s - 결과: %s\n";
-    private final String DEALER_HIT_MESSAGE = "\n딜러는 16이하라 한장의 카드를 더 받았습니다.";
-    private final String FINAL_RESULT_HEADER = "## 최종 수익";
+    private static final String LINE_SEPARATOR = System.lineSeparator();
+    private static final String HEADER_FORMAT = "딜러와 %s에게 2장을 나누었습니다." + LINE_SEPARATOR;
+    private static final String DEALER_STATUS_FORMAT = "딜러카드: %s" + LINE_SEPARATOR;
+    private static final String PLAYER_STATUS_FORMAT = "%s카드: %s" + LINE_SEPARATOR;
+    private static final String DEALER_COUNT_FORMAT = "딜러: %d" + LINE_SEPARATOR;
+    private static final String PLAYER_RESULT_FORMAT = "%s: %d" + LINE_SEPARATOR;
+    private static final String DEALER_NAME = "딜러";
+    private static final String SCORE_RESULT_FORMAT = "%s카드: %s - 결과: %s" + LINE_SEPARATOR;
+    private static final String DEALER_HIT_MESSAGE = "딜러는 16이하라 한장의 카드를 더 받았습니다.";
+    private static final String FINAL_RESULT_HEADER = "## 최종 수익";
 
     public void printInitMessage(InitStatusDto initStatusDto) {
         System.out.println();
