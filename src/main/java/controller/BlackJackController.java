@@ -73,7 +73,7 @@ public class BlackJackController {
         InitStatusDto initStatusDto = InitStatusDto.of(dealer, players);
         outputView.printInitMessage(initStatusDto);
 
-        // todo : player, players를 붋변객체로 만들어서 해당 로직도 불변에 맞게 수정
+        // todo : player, players를 불변객체로 만들어서 해당 로직도 불변에 맞게 수정
         for (int i = 0; i < players.size(); i++) {
             Player player = players.get(i);
             drawPlayerCard(player, deck);
