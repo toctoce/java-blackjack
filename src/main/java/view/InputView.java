@@ -40,7 +40,6 @@ public class InputView {
         }
     }
 
-    // todo : COMMAND 원시값 포장
     public Command askPlayerCommand(String name) {
         System.out.printf(YN_FORMAT, name);
         return Command.from(sc.nextLine());
