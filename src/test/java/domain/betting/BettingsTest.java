@@ -33,7 +33,7 @@ class BettingsTest {
         Bettings bettings = new Bettings();
 
         // when
-        Bettings newBettings = bettings.addBetting(createBetting("봉구스", 10000));
+        Bettings newBettings = bettings.add(createBetting("봉구스", 10000));
 
         // then
         assertEquals(1, newBettings.bettings().size());

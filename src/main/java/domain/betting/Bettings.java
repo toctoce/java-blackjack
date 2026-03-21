@@ -15,7 +15,7 @@ public record Bettings(List<Betting> bettings) {
         this.bettings = List.copyOf(bettings);
     }
 
-    public Bettings addBetting(Betting betting) {
+    public Bettings add(Betting betting) {
         List<Betting> bettings = new ArrayList<>(this.bettings);
         bettings.add(betting);
         return new Bettings(bettings);

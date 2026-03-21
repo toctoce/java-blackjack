@@ -55,7 +55,7 @@ public class BlackJackController {
             Player player = players.get(i);
             BettingMoney bettingMoney = BettingMoney.from(inputView.askBettingAmount(player.getNameString()));
             Betting betting = new Betting(player, bettingMoney);
-            bettings = bettings.addBetting(betting);
+            bettings = bettings.add(betting);
         }
         return bettings;
     }
