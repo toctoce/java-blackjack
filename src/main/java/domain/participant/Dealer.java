@@ -1,10 +1,11 @@
 package domain.participant;
 
-import domain.card.Card;
+import domain.Hand;
+import java.util.List;
 
 public class Dealer extends Participant {
 
-    public Card getFirstCard() {
-        return hand.getFirstCard();
+    public Hand getOpenHand() {
+        return Hand.from(List.of(hand.getFirstCard()));
     }
 }

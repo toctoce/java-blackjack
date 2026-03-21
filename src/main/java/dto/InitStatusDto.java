@@ -7,7 +7,7 @@ import java.util.List;
 public record InitStatusDto(HandDto dealerHandDto, List<PlayerHandDto> playerHandDtos) {
 
     public static InitStatusDto of(Dealer dealer, Players players) {
-        HandDto dealerHandDto = HandDto.from(dealer.getFirstCard());
+        HandDto dealerHandDto = HandDto.from(dealer.getOpenHand());
 
         List<PlayerHandDto> playerHandDtos = players.players().stream()
                 .map(PlayerHandDto::from)

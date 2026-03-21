@@ -10,6 +10,7 @@ import domain.card.Card;
 import domain.card.Rank;
 import domain.card.Suit;
 import domain.participant.Dealer;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class DealerTest {
@@ -104,5 +105,18 @@ class DealerTest {
 
         // then
         assertFalse(dealer.isBlackjackAtFirst());
+    }
+
+    @Test
+    void 공개된_딜러_패는_첫번째_카드만_포함한다() {
+        // given
+        Dealer dealer = createDealer(createSpadesCard(Rank.ACE), new Card(Suit.HEARTS, Rank.KING));
+
+        // when
+        var openHand = dealer.getOpenHand();
+
+        // then
+        assertEquals(1, openHand.size());
+        assertEquals(List.of(createSpadesCard(Rank.ACE)), openHand.getCardsList());
     }
 }
